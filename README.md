@@ -53,7 +53,7 @@ Default configuration file is created automactically in `~/.wdcs/cfg.ini`.
 ## External cracking
 If PMKID or 4-way handshake were collected but psk cracking was unsuccessful, the hashcat supported files (4-way handshake - `*.2500` and PMKID - `*.16800`) can be exported by invoking `wdcs.py export OUTPUT_DIR`. Additionaly, `dict_TIMESTAMP.txt` file will appear, containing a dictionary generated from collected ESSIDs.
 
-The additional script `additional/hashcat_crack/py` can be run on any machine (for example Windows PC with more powerful GPU). It will detect all available `*.2500` and `*.16800` files and will run hashcat to crack them using dictionaries loaded from the relative `dicts` directory (you can put there any dictionaries you like). It keeps track of processed files, so you can add more files and dictionaries with time and the script will handle it without repeating the cracking proccess unnecessarily.
+The additional script `additional/hashcat_crack.py` can be run on any machine (for example Windows PC with more powerful GPU). It will detect all available `*.2500` and `*.16800` files and will run hashcat to crack them using dictionaries loaded from the relative `dicts` directory (you can put there any dictionaries you like). It keeps track of processed files, so you can add more files and dictionaries with time and the script will handle it without repeating the cracking proccess unnecessarily.
 
 Cracked passwords can be imported to the main tool by invoking `wdcs.py psk ESSID PSK`.
 
