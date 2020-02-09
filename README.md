@@ -6,7 +6,7 @@ WDCS utilizes known WiFi-related security tools (listed below) to automate the p
 ## Usage
 
 ```
-Wireless Detect Crack Scan (v0.1)
+Wireless Discover Crack Scan (v0.1)
 	mass automated wifi security tool
 Usage:
 	wdcs.py auto - start auto scan
