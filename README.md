@@ -1,7 +1,7 @@
 # WirelessDiscoverCrackScan
 
 ## Introduction
-WDCS utilizes known WiFi-related security tools (listed below) to automate the process of discovering wireless networks, cracking passwords and scanning them. It automatically selects targets and runs all attacks. However, additional interactive mode is also available to allow users select targets manually. All results are collected in a local database, so cracked psks and scan results can be exported. In case of unsuccessfully cracked networks, it is also possible to export relevant data and perform cracking on another machine with more complex dictionaries using included additional script.
+WDCS utilizes known WiFi-related security tools (listed below) to automate the process of discovering wireless networks, cracking passwords and scanning them. It automatically selects targets and runs all attacks. However, the additional interactive mode is also available to allow users select targets manually. All results are collected in a local database, so cracked psks and scan results can be exported. In the case of unsuccessfully cracked networks, it is also possible to export relevant data and perform cracking on another machine with more complex dictionaries using included additional script.
 
 ## Usage
 
@@ -20,11 +20,11 @@ Usage:
 The whole flow can be explained in the following steps:
 
 1. Discover nearby wireless networks.
-2. Automatically select target (applying an optional BSSID whitelist and comparing a last attack time).
+2. Automatically select target (applying an optional BSSID whitelist and comparing the last attack time).
 3. If the network is not protected (open) or psk is already known, then go to STEP 11, else assume it's WPA/WPA2 protected.
 4. If the network supports WPS, then run reaver (pixie dust attack and brute force), else go to STEP 6.
 5. If psk was found, then go to step 11.
-6. Use second wireless adapter to initiate connection using random password and listen for PMKID.
+6. Use second wireless adapter to initiate a connection using a random password and listen for PMKID.
 7. If PMKID was collected, then go to STEP 9.
 8. Deauthenticate connected clients and listen for a 4-way handshake.
 9. Run hashcat against collected PMKID/4-way handshake.
@@ -45,15 +45,15 @@ Following tools are required:
 - [hcxpcaptool](https://github.com/ZerBea/hcxtools)
 - macchanger
 
-Two network interfaces are required to catch PMKID packets (but the second one doesn't need to support monitor mode). Other options work with only one interface.
+Two network interfaces are required to catch PMKID packets (but the second one doesn't need to support monitor mode). Other options work with just one interface.
 
 ## Configuration
-Default configuration file is created automactically in `~/.wdcs/cfg.ini`.
+Default configuration file is created automatically in `~/.wdcs/cfg.ini`.
 
 ## External cracking
-If PMKID or 4-way handshake were collected but psk cracking was unsuccessful, the hashcat supported files (4-way handshake - `*.2500` and PMKID - `*.16800`) can be exported by invoking `wdcs.py export OUTPUT_DIR`. Additionaly, `dict_TIMESTAMP.txt` file will appear, containing a dictionary generated from collected ESSIDs.
+If PMKID or 4-way handshake were collected but psk cracking was unsuccessful, the hashcat supported files (4-way handshake - `*.2500` and PMKID - `*.16800`) can be exported by invoking `wdcs.py export OUTPUT_DIR`. Additionally, `dict_TIMESTAMP.txt` file will appear, containing a dictionary generated from collected ESSIDs.
 
-The additional script `additional/hashcat_crack.py` can be run on any machine (for example Windows PC with more powerful GPU). It will detect all available `*.2500` and `*.16800` files and will run hashcat to crack them using dictionaries loaded from the relative `dicts` directory (you can put there any dictionaries you like). It keeps track of processed files, so you can add more files and dictionaries with time and the script will handle it without repeating the cracking proccess unnecessarily.
+The additional script `additional/hashcat_crack.py` can be run on any machine (for example Windows PC with more powerful GPU). It will detect all available `*.2500` and `*.16800` files and will run hashcat to crack them using dictionaries loaded from the relative `dicts` directory (you can put there any dictionaries you like). It keeps track of processed files, so you can add more files and dictionaries with time and the script will handle it without repeating the cracking process unnecessarily.
 
 Cracked passwords can be imported to the main tool by invoking `wdcs.py psk ESSID PSK`.
 
@@ -61,4 +61,4 @@ Cracked passwords can be imported to the main tool by invoking `wdcs.py psk ESSI
 The project is not in its final state. It may contain bugs and there are things which would be helpful but are not implemented:
 - [ ] Support WEP cracking / connecting
 - [ ] Detect hidden networks
-- [ ] Custom scripts run after initiating connection
+- [ ] Custom scripts run after initiating a connection
