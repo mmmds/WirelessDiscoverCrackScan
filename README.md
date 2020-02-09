@@ -1,7 +1,9 @@
 # WirelessDiscoverCrackScan
 
 ## Introduction
-WDCS utilizes known WiFi-related security tools (listed below) to automate the process of discovering wireless networks, cracking passwords and scanning them. It automatically selects targets and runs all attacks. However, the additional interactive mode is also available to allow users select targets manually. All results are collected in a local database, so cracked psks and scan results can be exported. In the case of unsuccessfully cracked networks, it is also possible to export relevant data and perform cracking on another machine with more complex dictionaries using included additional script.
+WDCS utilizes known WiFi-related security tools (listed below) to automate the process of discovering wireless networks, cracking passwords and scanning them. It automatically selects targets and runs all attacks. However, the additional interactive mode is also available to allow users select targets manually. All results are collected in a local database, so cracked psks and scan results can be exported. In the case of unsuccessfully cracked networks, it is also possible to export relevant data and perform cracking on another machine with more complex dictionaries using included additional script. 
+
+The techniques used in this project are also separately described in [this](https://mmmds.pl/wifi-cheatsheet/) cheatsheet.
 
 ## Usage
 
